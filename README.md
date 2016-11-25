@@ -12,21 +12,20 @@ An implementation of VHD [VHD specification](https://technet.microsoft.com/en-us
 
 # Installation
 
-    go get github.com/Microsoft/azure-vhd-utils-for-go
+    go get github.com/Microsoft/azure-vhd-utils
 
-### Dependencies 
-    
-    The project has dependency on following Go packages
-    1. https://github.com/codegangsta/cli
-            This package is used to expose CLI interface.
-    2. https://github.com/Azure/azure-sdk-for-go
-            This package is used to make Microsoft Azure storage API calls.
+### Installing dependencies 
 
+       go get gopkg.in/urfave/cli.v1
+       go get github.com/Azure/azure-sdk-for-go/storage
+
+    cli.v1 package is used to expose CLI interface.
+    storage package is used to make Microsoft Azure storage API calls for accessing target container and page blob
 # Features
 
-1. Fast uploads - This tool offers faster uploads than the [Azure Cross Platform Command Line](https://github.com/Azure/azure-xplat-cli).
+1. Fast uploads - This tool offers faster uploads by using multiple routines and balancing the load across them.
 2. Efficient uploads - This tool will only upload used (non-zero) portions of the disk.
-3. Parallelism - This tool can upload VHDs concurrently (user configurable).
+3. Parallelism - This tool can upload segements of the VHD concurrently (user configurable).
 
 # Usage
 
