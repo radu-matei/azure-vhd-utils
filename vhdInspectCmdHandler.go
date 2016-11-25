@@ -13,7 +13,7 @@ import (
 	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/block/bitmap"
 	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/footer"
 	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/vhdfile"
-	"github.com/codegangsta/cli"
+	"gopkg.in/urfave/cli.v1"
 )
 
 // FixedDiskBlocksInfo type describes general block information of a fixed disk

@@ -14,7 +14,7 @@ import (
 	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/common"
 	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/diskstream"
 	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/validator"
-	"github.com/codegangsta/cli"
+	"gopkg.in/urfave/cli.v1"
 )
 
 func vhdUploadCmdHandler() cli.Command {

@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/codegangsta/cli"
 	"log"
 	"os"
+	"gopkg.in/urfave/cli.v1"
 )
 
 func main() {
