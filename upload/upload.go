@@ -2,13 +2,14 @@ package upload
 
 import (
 	"fmt"
+	"io"
+	"time"
+
 	"github.com/Azure/azure-sdk-for-go/storage"
 	"github.com/Microsoft/azure-vhd-utils-for-go/upload/concurrent"
 	"github.com/Microsoft/azure-vhd-utils-for-go/upload/progress"
 	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/common"
 	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/diskstream"
-	"io"
-	"time"
 )
 
 // DiskUploadContext type describes VHD upload context, this includes the disk stream to read from, the ranges of
@@ -110,7 +111,7 @@ L:
 	if err == nil {
 		// TODO: Set MD5 Hash for the PageBlob, the Storage SDK does not implement method to set BlobProperties
 		// https://msdn.microsoft.com/en-us/library/azure/ee691966.aspx
-		fmt.Printf("\r Completed: %3d%% [%10.2f MB] RemainingTime: %02dh:%02dm:%02ds Throughput: %d MB/sec  %2c ",
+		fmt.Printf("\r Completed: %3d%% [%10.2f MB] RemainingTime: %02dh:%02dm:%02ds Throughput: %d Mb/sec  %2c ",
 			100,
 			float64(uploadSizeInBytes)/oneMB,
 			0, 0, 0,
@@ -169,11 +170,11 @@ func readAndPrintProgress(progressChan <-chan *progress.Record, resume bool) {
 			i = 0
 		}
 		t := s.Add(progressRecord.RemainingDuration)
-		fmt.Printf("\r Completed: %3d%% [%10.2f MB] RemainingTime: %02dh:%02dm:%02ds Throughput: %d MB/sec  %2c ",
+		fmt.Printf("\r Completed: %3d%% [%10.2f MB] RemainingTime: %02dh:%02dm:%02ds Throughput: %d Mb/sec  %2c ",
 			int(progressRecord.PercentComplete),
 			float64(progressRecord.BytesProcessed)/oneMB,
 			t.Hour(), t.Minute(), t.Second(),
-			int(progressRecord.AverageThroughputMBPerSecond),
+			int(progressRecord.AverageThroughputMbPerSecond),
 			spinChars[i],
 		)
 		i++

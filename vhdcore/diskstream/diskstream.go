@@ -2,12 +2,13 @@ package diskstream
 
 import (
 	"errors"
+	"io"
+
 	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore"
 	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/block"
 	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/common"
 	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/footer"
 	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/vhdfile"
-	"io"
 )
 
 // DiskStream provides a logical stream over a VHD file.
@@ -260,6 +261,15 @@ func (s *DiskStream) readFromFooter(rangeToRead *common.IndexRange, p []byte) (n
 		vhdFooter.HeaderOffset = vhdcore.VhdNoDataLong
 		vhdFooter.CreatorApplication = "wa"
 	}
+	// As per VHD spec, the size reported by the footer should same as 'header.MaxTableEntries * header.BlockSize'
+	// But the VHD created by some tool (e.g. qemu) are not honoring this. Azure will reject the VHD if the size
+	// specified in the footer of VHD not match 'VHD blob size - VHD Footer Size'
+	//
+	vhdFooter.PhysicalSize = s.GetSize() - vhdcore.VhdFooterSize
+	vhdFooter.VirtualSize = s.GetSize() - vhdcore.VhdFooterSize
+
+	// Calculate the checksum and serialize the footer
+	//
 	vhdFooterBytes := footer.SerializeFooter(vhdFooter)
 	copyStartIndex := rangeToReadFromFooter.Start - s.vhdFooterRange.Start
 	writtenCount := copy(p, vhdFooterBytes[copyStartIndex:copyStartIndex+rangeToReadFromFooter.Length()])

@@ -6,12 +6,13 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
-	"github.com/Azure/azure-sdk-for-go/storage"
-	"github.com/Microsoft/azure-vhd-utils-for-go/upload/progress"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/diskstream"
 	"io"
 	"os"
 	"time"
+
+	"github.com/Azure/azure-sdk-for-go/storage"
+	"github.com/Microsoft/azure-vhd-utils-for-go/upload/progress"
+	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/diskstream"
 )
 
 // The key of the page blob metadata collection entry holding VHD metadata as json.
@@ -174,7 +175,7 @@ func calculateMD5Hash(diskStream *diskstream.DiskStream) ([]byte, error) {
 			fmt.Printf("\r Completed: %3d%% RemainingTime: %02dh:%02dm:%02ds Throughput: %d MB/sec",
 				int(progressRecord.PercentComplete),
 				t.Hour(), t.Minute(), t.Second(),
-				int(progressRecord.AverageThroughputMBPerSecond),
+				int(progressRecord.AverageThroughputMbPerSecond),
 			)
 		}
 	}()
