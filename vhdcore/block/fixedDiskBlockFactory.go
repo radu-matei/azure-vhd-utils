@@ -1,10 +1,11 @@
 package block
 
 import (
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/common"
 	"log"
 	"math"
+
+	"github.com/Microsoft/azure-vhd-utils/vhdcore"
+	"github.com/Microsoft/azure-vhd-utils/vhdcore/common"
 )
 
 // FixedDiskBlockFactory is a type which is used for following purposes

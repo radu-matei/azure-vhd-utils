@@ -2,8 +2,9 @@ package validator
 
 import (
 	"fmt"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/diskstream"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/vhdfile"
+
+	"github.com/Microsoft/azure-vhd-utils/vhdcore/diskstream"
+	"github.com/Microsoft/azure-vhd-utils/vhdcore/vhdfile"
 )
 
 // oneTB is one TeraByte

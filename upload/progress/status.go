@@ -21,7 +21,7 @@ type Status struct {
 //
 type Record struct {
 	PercentComplete              float64
-	AverageThroughputMBPerSecond float64
+	AverageThroughputMbPerSecond float64
 	RemainingDuration            time.Duration
 	BytesProcessed               int64
 }
@@ -101,7 +101,7 @@ Loop:
 
 			progressRecord.PercentComplete = s.percentComplete()
 			progressRecord.RemainingDuration = time.Duration(nanosecondsInOneSecond * remainingSeconds)
-			progressRecord.AverageThroughputMBPerSecond = avtThroughputMbps
+			progressRecord.AverageThroughputMbPerSecond = avtThroughputMbps
 			progressRecord.BytesProcessed = s.bytesProcessed
 
 			outChan <- progressRecord

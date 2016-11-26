@@ -1,8 +1,8 @@
 package footer
 
 import (
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/writer"
+	"github.com/Microsoft/azure-vhd-utils/vhdcore"
+	"github.com/Microsoft/azure-vhd-utils/vhdcore/writer"
 )
 
 // SerializeFooter returns the given VhdFooter instance as byte slice of length 512 bytes.

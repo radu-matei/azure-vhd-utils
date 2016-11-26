@@ -2,9 +2,10 @@ package footer
 
 import (
 	"bytes"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/common"
 	"time"
+
+	"github.com/Microsoft/azure-vhd-utils/vhdcore"
+	"github.com/Microsoft/azure-vhd-utils/vhdcore/common"
 )
 
 // Footer represents the footer of the vhd, the size of the footer is 512 bytes.

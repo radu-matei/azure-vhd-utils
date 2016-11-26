@@ -3,9 +3,10 @@ package reader
 import (
 	"bytes"
 	"encoding/binary"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore"
 	"time"
 	"unsafe"
+
+	"github.com/Microsoft/azure-vhd-utils/vhdcore"
 )
 
 // VhdReader is the reader used by various components responsible for reading different

@@ -1,9 +1,9 @@
 package block
 
 import (
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/bat"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/footer"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/reader"
+	"github.com/Microsoft/azure-vhd-utils/vhdcore/bat"
+	"github.com/Microsoft/azure-vhd-utils/vhdcore/footer"
+	"github.com/Microsoft/azure-vhd-utils/vhdcore/reader"
 )
 
 // DifferencingDiskBlockReader type satisfies BlockDataReader interface,

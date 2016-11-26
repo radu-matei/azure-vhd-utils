@@ -2,11 +2,12 @@ package vhdFile
 
 import (
 	"fmt"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/bat"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/block"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/footer"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/header"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/reader"
+
+	"github.com/Microsoft/azure-vhd-utils/vhdcore/bat"
+	"github.com/Microsoft/azure-vhd-utils/vhdcore/block"
+	"github.com/Microsoft/azure-vhd-utils/vhdcore/footer"
+	"github.com/Microsoft/azure-vhd-utils/vhdcore/header"
+	"github.com/Microsoft/azure-vhd-utils/vhdcore/reader"
 )
 
 // VhdFile represents a VHD.

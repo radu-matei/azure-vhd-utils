@@ -2,7 +2,8 @@ package footer
 
 import (
 	"fmt"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore"
+
+	"github.com/Microsoft/azure-vhd-utils/vhdcore"
 )
 
 // DiskGeometry represents the cylinder, heads and sectors (CHS) per track.

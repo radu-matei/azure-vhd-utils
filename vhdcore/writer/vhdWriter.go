@@ -3,10 +3,11 @@ package writer
 import (
 	"encoding/binary"
 	"fmt"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore"
 	"io"
 	"time"
 	"unsafe"
+
+	"github.com/Microsoft/azure-vhd-utils/vhdcore"
 )
 
 // VhdWriter is the writer used by various components responsible for writing header and

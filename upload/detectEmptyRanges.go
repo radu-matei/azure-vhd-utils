@@ -2,12 +2,13 @@ package upload
 
 import (
 	"fmt"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/block/bitmap"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/common"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/diskstream"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/footer"
 	"io"
 	"math"
+
+	"github.com/Microsoft/azure-vhd-utils/vhdcore/block/bitmap"
+	"github.com/Microsoft/azure-vhd-utils/vhdcore/common"
+	"github.com/Microsoft/azure-vhd-utils/vhdcore/diskstream"
+	"github.com/Microsoft/azure-vhd-utils/vhdcore/footer"
 )
 
 // DataWithRange type describes a range and data associated with the range.

@@ -2,10 +2,11 @@ package footer
 
 import (
 	"fmt"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/common"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/reader"
 	"time"
+
+	"github.com/Microsoft/azure-vhd-utils/vhdcore"
+	"github.com/Microsoft/azure-vhd-utils/vhdcore/common"
+	"github.com/Microsoft/azure-vhd-utils/vhdcore/reader"
 )
 
 // Factory type is used to create Footer instance by reading vhd footer section.

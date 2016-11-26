@@ -1,12 +1,13 @@
 package vhdFile
 
 import (
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/bat"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/footer"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/header"
-	"github.com/Microsoft/azure-vhd-utils-for-go/vhdcore/reader"
 	"os"
 	"path/filepath"
+
+	"github.com/Microsoft/azure-vhd-utils/vhdcore/bat"
+	"github.com/Microsoft/azure-vhd-utils/vhdcore/footer"
+	"github.com/Microsoft/azure-vhd-utils/vhdcore/header"
+	"github.com/Microsoft/azure-vhd-utils/vhdcore/reader"
 )
 
 // FileFactory is a type to create VhdFile representing VHD in the local machine
