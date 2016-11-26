@@ -14,13 +14,13 @@ An implementation of VHD [VHD specification](https://technet.microsoft.com/en-us
 
     go get github.com/Microsoft/azure-vhd-utils
 
-### Installing dependencies 
+This tool has following dependencies. They are included in the vendor directory so no need to `go get` them separately.
 
-       go get gopkg.in/urfave/cli.v1
-       go get github.com/Azure/azure-sdk-for-go/storage
+    gopkg.in/urfave/cli.v1
+      cli.v1 package is used to expose CLI interface.
+    github.com/Azure/azure-sdk-for-go/storage
+      storage package is used to make Microsoft Azure storage API calls for accessing target container and page blob
 
-    cli.v1 package is used to expose CLI interface.
-    storage package is used to make Microsoft Azure storage API calls for accessing target container and page blob
 # Features
 
 1. Fast uploads - This tool offers faster uploads by using multiple routines and balancing the load across them.
