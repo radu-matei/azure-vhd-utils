@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/base64"
 	"errors"
 	"fmt"
 	"log"
@@ -165,10 +166,10 @@ func vhdUploadCmdHandler() cli.Command {
 			err = upload.Upload(cxt)
 			if err != nil {
 				return err
-			} else {
-				fmt.Println("\nUpload completed")
 			}
 
+			setBlobMD5Hash(blobServiceClient, containerName, blobName, localMetaData)
+			fmt.Println("\nUpload completed")
 			return nil
 		},
 	}
@@ -241,6 +242,19 @@ func createBlob(client storage.BlobStorageClient, containerName, blobName string
 	m, _ := vhdMetaData.ToMap()
 	if err := client.SetBlobMetadata(containerName, blobName, m, make(map[string]string)); err != nil {
 		log.Fatal(err)
+	}
+}
+
+// setBlobMD5Hash sets MD5 hash of the blob in it's properties
+//
+func setBlobMD5Hash(client storage.BlobStorageClient, containerName, blobName string, vhdMetaData *metadata.MetaData) {
+	if vhdMetaData.FileMetaData.MD5Hash != nil {
+		blobHeaders := storage.BlobHeaders{
+			ContentMD5: base64.StdEncoding.EncodeToString(vhdMetaData.FileMetaData.MD5Hash),
+		}
+		if err := client.SetBlobProperties(containerName, blobName, blobHeaders); err != nil {
+			log.Fatal(err)
+		}
 	}
 }
 

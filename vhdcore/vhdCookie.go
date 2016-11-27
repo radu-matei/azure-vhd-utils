@@ -72,7 +72,7 @@ func (c *Cookie) Equal(other *Cookie) bool {
 		return true
 	}
 
-	return c.isHeader == c.isHeader && bytes.Equal(c.Data, other.Data)
+	return c.isHeader == other.isHeader && bytes.Equal(c.Data, other.Data)
 }
 
 // String returns the string representation of this range, this satisfies stringer interface.

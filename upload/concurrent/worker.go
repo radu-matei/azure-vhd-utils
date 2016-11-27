@@ -73,19 +73,15 @@ func (w *Worker) Run(tearDownChan <-chan bool) {
 
 			var err error
 			// Do work, retry on failure.
-		L:
+		Loop:
 			for count := 0; count < maxRetryCount+1; count++ {
 				select {
 				case <-tearDownChan:
 					return
 				default:
 					err = requestToHandle.Work() // Run work
-					if err == nil {
-						break L
-					}
-
-					if !requestToHandle.ShouldRetry(err) {
-						break L
+					if err == nil || !requestToHandle.ShouldRetry(err) {
+						break Loop
 					}
 				}
 			}
@@ -99,7 +95,7 @@ func (w *Worker) Run(tearDownChan <-chan bool) {
 			}
 
 			select {
-			case w.requestHandledChan <- w: // One work finished
+			case w.requestHandledChan <- w: // One work finished (successfully or unsuccessfully)
 			case <-tearDownChan:
 				return
 			}

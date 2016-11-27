@@ -1,6 +1,7 @@
 package upload
 
 import (
+	"errors"
 	"fmt"
 	"io"
 	"time"
@@ -53,18 +54,21 @@ func Upload(cxt *DiskUploadContext) error {
 	for _, r := range cxt.UploadableRanges {
 		uploadSizeInBytes += r.Length()
 	}
-
 	fmt.Printf("\nEffective upload size: %.2f MB (from %.2f MB originally)", float64(uploadSizeInBytes)/oneMB, float64(cxt.VhdStream.GetSize())/oneMB)
 
 	// Prepare and start the upload progress tracker
 	uploadProgress := progress.NewStatus(cxt.Parallelism, cxt.AlreadyProcessedBytes, uploadSizeInBytes, progress.NewComputestateDefaultSize())
 	progressChan := uploadProgress.Run()
+
 	// read progress status from progress tracker and print it
 	go readAndPrintProgress(progressChan, cxt.Resume)
 
+	// listen for errors reported by workers and print it
+	var allWorkSucceeded = true
 	go func() {
 		for {
-			fmt.Println("FailedAfterAllRetries:", <-workerErrorChan)
+			fmt.Println(<-workerErrorChan)
+			allWorkSucceeded = false
 		}
 	}()
 
@@ -78,6 +82,8 @@ L:
 				break L
 			}
 
+			// Create work request
+			//
 			req := &concurrent.Request{
 				Work: func() error {
 					err := cxt.BlobServiceClient.PutPage(cxt.ContainerName,
@@ -98,7 +104,9 @@ L:
 				ID: dataWithRange.Range.String(),
 			}
 
-			requtestChan <- req // Send to load balancer
+			// Send work request to load balancer for processing
+			//
+			requtestChan <- req
 		case err = <-streamReadErrChan:
 			close(requtestChan)
 			loadBalancer.TearDownWorkers()
@@ -108,9 +116,12 @@ L:
 
 	<-allWorkersFinishedChan
 	uploadProgress.Close()
+
+	if !allWorkSucceeded {
+		err = errors.New("\nUpload Incomplete: Some blocks of the VHD failed to upload, rerun the command to upload those blocks")
+	}
+
 	if err == nil {
-		// TODO: Set MD5 Hash for the PageBlob, the Storage SDK does not implement method to set BlobProperties
-		// https://msdn.microsoft.com/en-us/library/azure/ee691966.aspx
 		fmt.Printf("\r Completed: %3d%% [%10.2f MB] RemainingTime: %02dh:%02dm:%02ds Throughput: %d Mb/sec  %2c ",
 			100,
 			float64(uploadSizeInBytes)/oneMB,
