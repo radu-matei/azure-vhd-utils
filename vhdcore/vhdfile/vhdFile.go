@@ -3,11 +3,11 @@ package vhdFile
 import (
 	"fmt"
 
-	"github.com/Microsoft/azure-vhd-utils/vhdcore/bat"
-	"github.com/Microsoft/azure-vhd-utils/vhdcore/block"
-	"github.com/Microsoft/azure-vhd-utils/vhdcore/footer"
-	"github.com/Microsoft/azure-vhd-utils/vhdcore/header"
-	"github.com/Microsoft/azure-vhd-utils/vhdcore/reader"
+	"github.com/radu-matei/azure-vhd-utils/vhdcore/bat"
+	"github.com/radu-matei/azure-vhd-utils/vhdcore/block"
+	"github.com/radu-matei/azure-vhd-utils/vhdcore/footer"
+	"github.com/radu-matei/azure-vhd-utils/vhdcore/header"
+	"github.com/radu-matei/azure-vhd-utils/vhdcore/reader"
 )
 
 // VhdFile represents a VHD.

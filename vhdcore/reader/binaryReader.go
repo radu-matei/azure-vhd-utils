@@ -3,7 +3,7 @@ package reader
 import (
 	"encoding/binary"
 	"fmt"
-	"github.com/Microsoft/azure-vhd-utils/vhdcore/common"
+	"github.com/radu-matei/azure-vhd-utils/vhdcore/common"
 	"io"
 )
 

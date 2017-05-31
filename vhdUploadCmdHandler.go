@@ -10,11 +10,11 @@ import (
 	"strings"
 
 	"github.com/radu-matei/azure-sdk-for-go/storage"
-	"github.com/Microsoft/azure-vhd-utils/upload"
-	"github.com/Microsoft/azure-vhd-utils/upload/metadata"
-	"github.com/Microsoft/azure-vhd-utils/vhdcore/common"
-	"github.com/Microsoft/azure-vhd-utils/vhdcore/diskstream"
-	"github.com/Microsoft/azure-vhd-utils/vhdcore/validator"
+	"github.com/radu-matei/azure-vhd-utils/upload"
+	"github.com/radu-matei/azure-vhd-utils/upload/metadata"
+	"github.com/radu-matei/azure-vhd-utils/vhdcore/common"
+	"github.com/radu-matei/azure-vhd-utils/vhdcore/diskstream"
+	"github.com/radu-matei/azure-vhd-utils/vhdcore/validator"
 	"gopkg.in/urfave/cli.v1"
 )
 

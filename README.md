@@ -6,7 +6,7 @@ This project provides a Go package to read Virtual Hard Disk (VHD) file, a CLI i
 An implementation of VHD [VHD specification](https://technet.microsoft.com/en-us/virtualization/bb676673.aspx) can be found in the [vhdcore](/vhdcore) package. 
 
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/Microsoft/azure-vhd-utils)](https://goreportcard.com/report/github.com/Microsoft/azure-vhd-utils)
+[![Go Report Card](https://goreportcard.com/badge/github.com/radu-matei/azure-vhd-utils)](https://goreportcard.com/report/github.com/radu-matei/azure-vhd-utils)
 
 # Prerequisite
 
@@ -15,7 +15,7 @@ An implementation of VHD [VHD specification](https://technet.microsoft.com/en-us
 
 # Installation
 
-    go get github.com/Microsoft/azure-vhd-utils
+    go get github.com/radu-matei/azure-vhd-utils
 
 This tool has following dependencies. They are included in the vendor directory so no need to `go get` them separately.
 

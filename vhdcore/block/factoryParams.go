@@ -1,10 +1,10 @@
 package block
 
 import (
-	"github.com/Microsoft/azure-vhd-utils/vhdcore/bat"
-	"github.com/Microsoft/azure-vhd-utils/vhdcore/footer"
-	"github.com/Microsoft/azure-vhd-utils/vhdcore/header"
-	"github.com/Microsoft/azure-vhd-utils/vhdcore/reader"
+	"github.com/radu-matei/azure-vhd-utils/vhdcore/bat"
+	"github.com/radu-matei/azure-vhd-utils/vhdcore/footer"
+	"github.com/radu-matei/azure-vhd-utils/vhdcore/header"
+	"github.com/radu-matei/azure-vhd-utils/vhdcore/reader"
 )
 
 // FactoryParams represents type of the parameter for different disk block

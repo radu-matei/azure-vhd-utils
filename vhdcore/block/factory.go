@@ -1,7 +1,7 @@
 package block
 
 import (
-	"github.com/Microsoft/azure-vhd-utils/vhdcore/common"
+	"github.com/radu-matei/azure-vhd-utils/vhdcore/common"
 )
 
 // Factory interface that all block factories specific to disk type (fixed,
