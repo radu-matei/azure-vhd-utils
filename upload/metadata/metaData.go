@@ -10,7 +10,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/Azure/azure-sdk-for-go/storage"
+	"github.com/radu-matei/azure-sdk-for-go/storage"
 	"github.com/Microsoft/azure-vhd-utils/upload/progress"
 	"github.com/Microsoft/azure-vhd-utils/vhdcore/diskstream"
 )

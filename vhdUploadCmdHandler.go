@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Azure/azure-sdk-for-go/storage"
+	"github.com/radu-matei/azure-sdk-for-go/storage"
 	"github.com/Microsoft/azure-vhd-utils/upload"
 	"github.com/Microsoft/azure-vhd-utils/upload/metadata"
 	"github.com/Microsoft/azure-vhd-utils/vhdcore/common"

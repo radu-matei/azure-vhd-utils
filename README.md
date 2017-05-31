@@ -21,7 +21,7 @@ This tool has following dependencies. They are included in the vendor directory 
 
     gopkg.in/urfave/cli.v1
       cli.v1 package is used to expose CLI interface.
-    github.com/Azure/azure-sdk-for-go/storage
+    github.com/radu-matei/azure-sdk-for-go/storage
       storage package is used to make Microsoft Azure storage API calls for accessing target container and page blob
 
 # Features
